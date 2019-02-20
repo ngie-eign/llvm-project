@@ -74,6 +74,8 @@ set(PROFILE_HEADERS
   InstrProfilingUtil.h
   WindowsMMap.h)
 
+include_directories(../../include)
+
 if(WIN32)
     list(APPEND PROFILE_SOURCES WindowsMMap.c)
 endif()

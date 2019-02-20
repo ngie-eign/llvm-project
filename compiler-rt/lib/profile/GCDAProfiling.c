@@ -46,6 +46,8 @@
 #include <stdint.h>
 #endif
 
+#include <gcov.h>
+
 #if defined(_MSC_VER)
 typedef unsigned char uint8_t;
 typedef unsigned int uint32_t;
@@ -619,7 +621,7 @@ void llvm_register_flush_function(fn_ptr fn) {
   fn_list_insert(&flush_fn_list, fn);
 }
 
-void __gcov_flush() {
+void __gcov_flush(void) {
   struct fn_node* curr = flush_fn_list.head;
 
   while (curr) {

@@ -1,5 +1,6 @@
+#include <gcov.h>
+
 extern void foo(int n);
-extern void __gcov_flush(void);
 
 int bar1 = 0;
 int bar2 = 1;

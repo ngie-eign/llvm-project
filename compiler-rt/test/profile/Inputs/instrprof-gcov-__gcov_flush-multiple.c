@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <gcov.h>
+
 int main(void) {
   __gcov_flush();
 

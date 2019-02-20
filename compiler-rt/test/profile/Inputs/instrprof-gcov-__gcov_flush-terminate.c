@@ -1,3 +1,5 @@
+#include <gcov.h>
+
 int main(void) {
   int i = 22;
 

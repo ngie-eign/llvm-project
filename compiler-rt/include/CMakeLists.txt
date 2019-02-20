@@ -1,3 +1,6 @@
+set(GCOV_COMPAT_HEADERS
+  gcov.h)
+
 if (COMPILER_RT_BUILD_SANITIZERS)
   set(SANITIZER_HEADERS
     sanitizer/allocator_interface.h
@@ -25,6 +28,7 @@ if (COMPILER_RT_BUILD_XRAY)
 endif(COMPILER_RT_BUILD_XRAY)
 
 set(COMPILER_RT_HEADERS
+  ${GCOV_COMPAT_HEADERS}
   ${SANITIZER_HEADERS}
   ${XRAY_HEADERS})
 
@@ -45,6 +49,11 @@ endforeach( f )
 add_custom_target(compiler-rt-headers ALL DEPENDS ${out_files})
 add_dependencies(compiler-rt compiler-rt-headers)
 set_target_properties(compiler-rt-headers PROPERTIES FOLDER "Compiler-RT Misc")
+
+# Install gcov compat headers.
+install(FILES ${GCOV_COMPAT_HEADERS}
+  PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ
+  DESTINATION ${COMPILER_RT_INSTALL_PATH}/include)
 
 # Install sanitizer headers.
 install(FILES ${SANITIZER_HEADERS}
