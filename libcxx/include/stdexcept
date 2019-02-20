@@ -181,9 +181,6 @@ public:
 
 _LIBCPP_BEGIN_NAMESPACE_STD
 
-// in the dylib
-_LIBCPP_NORETURN _LIBCPP_FUNC_VIS void __throw_runtime_error(const char*);
-
 _LIBCPP_NORETURN inline _LIBCPP_INLINE_VISIBILITY
 void __throw_logic_error(const char*__msg)
 {
